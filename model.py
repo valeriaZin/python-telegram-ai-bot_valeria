@@ -12,7 +12,7 @@ class LLMService:
             )
             # Формируем системный промпт
             self.sys_prompt = "Ты оператор техподдержки, отвечай вежливо"
-            self.model="gpt://b1gd4dt3l1spqgmer1n1/yandexgpt-lite",
+            self.model="gpt://b1gd4dt3l1spqgmer1n1/yandexgpt-lite"
 
         except Exception as e:
             return f"Произошла ошибка: {str(e)}"
@@ -21,7 +21,7 @@ class LLMService:
         try:
             # Обращаемся к API
             response = self.client.chat.completions.create(
-                model="gpt://b1gd4dt3l1spqgmer1n1/yandexgpt-lite",
+                model=self.model,
                 messages=[
                     {"role": "system", "content": self.sys_prompt},
                     {"role": "user", "content": message},
